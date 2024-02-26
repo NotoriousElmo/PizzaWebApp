@@ -1,0 +1,31 @@
+@page
+@model WebApp.Pages_AdditionalComponentsInPizzas.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AdditionalComponentInPizza</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdditionalComponentInPizza.AdditionalComponent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdditionalComponentInPizza.AdditionalComponent!.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdditionalComponentInPizza.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdditionalComponentInPizza.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AdditionalComponentInPizza.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

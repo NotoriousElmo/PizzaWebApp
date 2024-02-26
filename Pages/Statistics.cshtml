@@ -1,0 +1,49 @@
+﻿@page
+@model WebApp.Pages.Statistics
+
+@{
+    ViewData["Title"] = "Statistics";
+}
+
+<h1>Statistics</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Total Sales
+            </th>
+            <th>
+                Total Pizzas Sold
+            </th>
+            <th>
+                Total Additional Components Sold
+            </th>
+            <th>
+                Most Popular Pizza
+            </th>
+            <th>
+                Most Popular Additional Component
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+                @Model.TotalSales
+            </th>
+            <th>
+                @Model.TotalPizzasSold
+            </th>
+            <th>
+                @Model.TotalAddsSold
+            </th>
+            <th>
+                @Model.MostPopularPizza
+            </th>
+            <th>
+                @Model.MostPopularAdd
+            </th>
+        </tr>
+    </tbody>
+</table>

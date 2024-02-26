@@ -1,0 +1,50 @@
+@page
+@model WebApp.Pages_Orders.IndexModel
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1>Orders</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Price
+            </th>
+            <th>
+                Client Name
+            </th>
+            <th>
+                Order
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.OrderTotal[item.ClientName])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Model.OrderSummary[item.ClientName]
+            </td>
+            <td>
+                <a asp-page="../PizzasInOrders/Create" asp-route-OrderId="@item.Id">Order New Pizza</a> |
+                <a asp-page="../PizzasInOrders/Delete" asp-route-Id="@item.Id">Remove Pizza</a> |
+                <a asp-page="../AdditionalComponentsInPizzas/Create" asp-route-Id="@item.Id">Add components</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

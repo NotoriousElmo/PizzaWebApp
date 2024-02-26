@@ -1,0 +1,25 @@
+@page
+@model WebApp.Pages_PizzasInOrders.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Choose the Pizza You Want To Remove</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PizzaInOrder.Id" class="control-label"></label>
+                <select asp-for="PizzaInOrder.Id" class ="form-control" asp-items="ViewBag.PizzaId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

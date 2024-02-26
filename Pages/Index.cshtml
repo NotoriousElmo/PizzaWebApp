@@ -1,0 +1,84 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Search" class="control-label"></label>
+        <input asp-for="Search" class="form-label"/>
+        <span asp-validation-for="Search" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InAdditions" class="control-label"></label>
+        <input asp-for="InAdditions" class="form-label"/>
+        <span asp-validation-for="InAdditions" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InCategory" class="control-label"></label>
+        <input asp-for="InCategory" class="form-label"/>
+        <span asp-validation-for="InCategory" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InPizzaName" class="control-label"></label>
+        <input asp-for="InPizzaName" class="form-label"/>
+        <span asp-validation-for="InPizzaName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InDescription" class="control-label"></label>
+        <input asp-for="InDescription" class="form-label"/>
+        <span asp-validation-for="InDescription" class="text-danger"></span>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="Reset" class="btn btn-primary">Reset</button>
+    </div>
+</form>
+<table class="table">
+    
+    <tr>
+        <td>
+            Pizza Name
+        </td>
+        <td>
+            Pizza Description
+        </td>
+        <td>
+            Price
+        </td>
+        <td>
+            Pizza Category
+        </td>
+        <td></td>
+    </tr>
+@foreach (var item in Model.Pizzas)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            <a asp-page="../Pizza/Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="../Pizza/Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-page="../Pizza/Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+}
+</table>
